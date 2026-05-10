@@ -14,6 +14,8 @@ jobs:
           node-version: 14
       - run: npm install
       - run: npm run build
+      - run: cp app/index.html dist/index.html
+      - run: cp -r app/data dist/data 2>/dev/null || true
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
